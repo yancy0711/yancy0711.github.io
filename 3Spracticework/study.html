@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--<script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>-->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/picture.css"/>
+		<link rel="stylesheet" type="text/css" href="css/study.css"/>
+		<title>植被分类</title>
+	</head>
+	
+	
+	<body>
+		<!--头部导航栏开始   样式共用-->
+		<header class="header_bar">
+			<div class="header">		
+			    <div class="top_navs">
+			    	<nav class="nav navbar-fixed-top plr20_pa" role="navgation">
+						<div class="navbar-header">
+				        	<div class="logo ">
+				        		<img src="img/校徽.jpg" width="100" height="50"/>
+				        	</div>
+				            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+				            </button>
+			        	</div>
+						
+			        	<div class="collapse navbar-collapse">
+				            <ul class="navbar-nav nav">
+				                <li ><a class="navigation-link" href="index.html" target="_self">首页</a></li>
+				                <li><a class="nonestyle" href="###">植被分类</a></li>
+				                <li><a class="navigation-link" href="picture.html" target="_self">图文一览</a></li>
+				                <li><a class="navigation-link" href="###" id="about_us_btn" target="_self">关于我们</a></li>
+				            </ul>
+				        </div>
+					</nav>
+			    </div>
+			</div>
+		</header>
+		<!--头部导航栏结束   样式共用-->
+		
+		<div style:"clear:both;"></div>
+		
+		<!--顶部图片展示开始  样式共用-->
+		<section>	
+			<div class="fixed_bg video_bg_top fixed_bg_top">
+				<!--<img src="img/green_season.jpeg"  alt="" style="width:100%; background-position: bottom center; background-repeat:no-repeat; background-size:cover; min-height:100%;"/>-->
+    			<p style="padding-top:50rem;"><a href="###"></a></p>
+    		</div>
+		</section>
+		<!--顶部图片展示结束  样式共用-->
+		
+		<!--主题内容开始  独立样式 引用video.css文件-->
+		<section id="site" class="main_content">
+			<div class="container main_content_title">
+				<h1 class="content_title title-font" >植被分类</h1>
+			</div>
+			
+			<!--video_content 开始-->
+			<div class="viedo_content container">
+				<div class="row">
+					<div class="viedo_content_children">
+						<div class="title title-font">
+							<h1 >总流程图</h1>
+						</div>
+
+						<div class="content_article_top_pic">
+							<div class="pic">
+								<img src="img/15.jpg" class="img-responsive" alt="Responsive image" style="margin: 0 auto;">
+							</div>	
+						</div>
+
+						<div class="col-md-12">
+							<div class="video_content_children_title">
+								数据处理
+							</div>
+							<div class="video_content_children_txt">
+								<p>本组数据采用Landsat8影像，北京二号影像，1mDEM影像数据以及老师提供的古树分布数据进行研究。首先要进行的便是对遥感影像数据的预处理。</p>
+								<p>第一步先对数量过多的树种进行点抽稀处理，平衡各类树种样本数量。将表格中的无用字段删除，并翻译为英文，设立中英文对照表格，使用投影变换更改坐标系等，以达到样本均衡、信息精简、坐标统一的效果。
+								</p>
+								<p>其次是进行辐射定标，计算平均高程值和大气校正等一系列操作。虽然数据本身已经进行几何校正和地形校正，但是仍然需要进行辐射定标，对遥感影像进行预处理可以提高后续分类的精度，降低误差。
+								</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="viedo_content_children">
+						<div class="row">
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/20.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/22.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/25.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="video_content_children_title">
+								特征因子提取
+							</div>
+							<div class="video_content_children_txt">
+								<p>植被指数有归一化植被指数(NDVI)、比值植被指数(RVI)、差值植被指数(DVI)、调整土壤亮度植被指数(SAVI)、土壤调整植被指数(MSAVI)、增强植被指数(EVI)等，可通过植被在近红外、红光、绿光和蓝光波段的遥感反射率计算所得，其中NDVI是衡量健康植被的标准化方法。当具有较高的NDVI值，趋于1时，植被显得更健康茂密。当NDVI较低时，植被较少或没有植被，趋于0时多呈现为岩石裸地，趋于-1时多呈现雪、水等。
+								</p>
+								<p>因此，我们对遥感数据中光谱信息通过一定数学运算得到植被指数，植被指数将用于提高树种识别精度。与此同时，我们计算了2015-2020年间该地域的ndvi回归方程来研究这六年间的上方山地区ndvi值的动态变化。选题同时也采用归一化植被指数(NDVI)、差值植被指数(DVI)、增强型植被指数(EVI)等，为下一步的分类奠定了基础。
+								</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="viedo_content_children">
+						<div class="row">
+							<div class="article_content_top_picture col-md-6">
+								<div class="article_content_top_picture_position">
+									<img src="img/40.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-6">
+								<div class="article_content_top_picture_position">
+									<img src="img/41.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="article_content_top_picture col-md-6">
+								<div class="article_content_top_picture_position">
+									<img src="img/42.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-6">
+								<div class="article_content_top_picture_position">
+									<img src="img/43.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="video_content_children_title">
+								监督分类
+							</div>
+							<div class="video_content_children_txt">
+								<p>在这一部分，本组成员使用了ENVI和ArcGis软件进行训练样本以及监督分类。其中采取了最小距离分类、最大似然分类，支持向量机的分类方法进行这一过程。</p>
+								<p>最小距离分类，是指求出未知类别向量到要识别各类别代表向量中心点的距离，将未知类别向量归属于距离最小一类的一种图像分类方法。最小距离分类法通过求出未知类别向量X到事先已知的各类别（如A，B，C等等）中心向量的距离D，然后将待分类的向量X归结为这些距离中最小的那一类的分类方法。
+								</p>
+								<p>支持向量机，常简称为SVM，是在分类与回归分析中分析数据的监督式学习模型与相关的学习算法。. 给定一组训练实例，每个训练实例被标记为属于两个类别中的一个或另一个，SVM训练算法创建一个将新的实例分配给两个类别之一的模型，使其成为非概率二元线性分类器。
+								</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="viedo_content_children">
+						<div class="row">
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/44.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/45.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/46.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="video_content_children_title">
+								分类精度评价与成果
+							</div>
+							<div class="video_content_children_txt">
+								<p>为了更好呈现其结果。我们用将地图分为多个板块进行合理分析。将结果所框出的部分与上方山管理处得到的图相同划线部分进行对比，可以看出该部分两幅图有着较高的相似性。而通过分析两幅图可以看出相似度最高的部分大多为油松和侧柏，表明该方法分析精度较为准确，并符合该地区多松柏的具体体现。
+								</p>
+								<p>在excel表格中进行进一步操作，对每种要素的分类结果进行评价，可以看出，最小距离法和支持向量机两种方法得到的结果精度相近，但对侧柏的数量存在一定的高估最大似然法得到结果则较差。
+								</p>
+								<p>总之不同的方法会产生不同的分类效果，对数据进行预处理之后，数据的样本量下降，难对数据进行进一步的验证集划分，因此精度评价依靠人工的定性分析。后使用上方山规划图中的植被分布图，将数据矢量化后进行面积制表操作，从而进行定量评价。
+
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--video_content 结束-->
+			
+			
+			<!--mix_content 开始-->
+			<div class="mix_content container">
+				<div class="mix_content_title">
+					<h2>收获与感谢</h2>
+				</div>
+				
+				
+				<div class="row mix_content_body">
+					<div class="col-md-6">
+						<div class="mix_content_video">
+							<div class="article_content_top_picture col-md-13">
+								<div class="article_content_top_picture_position">
+									<img src="img/14.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+						</div>
+						<div class="mix_content_content">
+							<div class="mix_content_content_title">
+								总结与反思
+							</div>
+							<div class="mix_content_content_txt">我们的研究成果包含了数据处理和分类结果图，科研报告，成果网页等项目。综合植被特征因子结果可以发现，上方山地区的植被改善区域与退化区域都呈现连片分布。但是总的来看，呈退化趋势和呈改善趋势的土地面积相比，呈退化趋势的土地面积更大，这也和对ndvi一元线性回归得到的结果相似。我们也进一步利用特征因子对植被种类进行处理、得到了研究区域树种分类的结果以及各个分类方法的精度评价。
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mix_content_video">
+							<div class="article_content_top_picture col-md-13">
+								<div class="article_content_top_picture_position">
+									<img src="img/13.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+						</div>
+						<div class="mix_content_content">
+							<div class="mix_content_content_title">感悟与鸣谢</div>
+							<div class="mix_content_content_txt">我们的小组成员通过二十几天的通力合作，共同完成了本课题的研究，也完成了3s综合实习这门课程的学习。在这个过程之中，有劳动的汗水，遇到问题的急躁，但更多的还是收获知识的喜悦和解决问题的快乐。在这次学习中，我们不仅对专业知识进行了进一步的实践，也懂得了如何进行团队合作与交流。在此，感谢艾老师、王老师、马老师以及所有专业课老师对我们的教导及启发，恳请各位老师的批评指证。</div>
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<!--mix_content 结束-->
+			
+			<!--article_content 开始  -->
+			<div class="article_content container blow_up_img">
+				<div class="article_content_top">
+						<div class="row">
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/10.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/11.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+							<div class="article_content_top_picture col-md-4">
+								<div class="article_content_top_picture_position">
+									<img src="img/12.jpg" class="img-responsive" alt="Responsive image">
+								</div>
+							</div>
+						</div>
+						
+				</div>
+				
+			</div>
+			<!--article_content 结束  -->
+			
+		</section>
+		<!--主题内容结束  独立样式 引用video.css文件-->
+		
+		
+		
+		<!--页脚信息--关于我们-->
+		<footer id="about_us">
+			<div class="fixed_bg bg_3 footer_padding">
+    			
+				<div class="footnote container">
+					<div class="footnote_title">
+						<div class="row footnote_title_content">
+							<div class="col-md-2 col-logo">
+								<div class="footnote_title_logo">
+									<div class="logo ">
+										<img src="img/校徽.jpg" width="100" height="50">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 col-title ">
+								<span>上</span><span>方</span><span>山</span><span>实</span><span>践</span>
+							</div>
+							<div class="footnote_gratitude">
+								<p>本次实践感谢老师的辛勤指导和团队的一致努力！</p>	
+							</div>
+						</div>
+					</div>
+					<div class="footnote_email">
+						<p>若您有任何意见、建议或疑惑</p>
+						<p class="footnote_email_p2">请联系我们</p>
+						<p>Email:1004205203@cugb.edu.cn</p>
+						<p>WeChat:yangyuchen0026</p>
+					</div>
+					<div class="footnote_about">
+						<div class="row">
+							<div class="col-md-7 footnote_about_col7">
+								<div class="footnote_about_center_l">
+									<span>
+										<p>队名</p>
+										<p>3S综合实习第九组</p>
+									</span>
+									<span>
+										<p>成员</p>
+										<p>朱宇晨</p>
+										<p>张睿</p>
+										<p>黄慧</p>
+										<p>杨宇宸</p>
+										<p>徐明霄</p>
+										<p>杨桐</p>
+									</span>
+									<span>
+										<p>单位</p>
+										<p>中国地质大学（北京）信息工程学院</p>
+									</span>
+								</div>
+								
+							</div>
+							<div class="col-md-5">
+								<div class="footnote_about_center_r">
+									<p>All right reserved © 2022 "走近上方山"</p><p>隐私保护</p><p>Crafted by 3S Practice Group9</p><p>本网站最终解释权归本团队所有</p>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+    	</div>
+	</footer>
+		<!--页脚信息--关于我们-->
+		
+		<!--返回顶部组件-->
+		<div class="scrollSite">
+			<a href="javascript:void(0)" class="scrollSite_btn"></a>
+		</div>
+		<!--返回顶部组件-->
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-3.0.0.min.js" ></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" ></script>	
+	<script type="text/javascript" src="js/base.js"></script>	
+
+
+</html>
